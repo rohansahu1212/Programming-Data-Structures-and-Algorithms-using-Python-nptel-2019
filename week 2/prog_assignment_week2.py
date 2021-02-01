@@ -89,17 +89,26 @@ def nestingdepth(s):
         return -1
   
     return max
-def rotatelist(l,k): 
-    output_list = [] 
-    k = k%len(l)
-      
-    # Will add values from n to the new list 
-    for item in range(k, len(l)): 
-        output_list.append(l[item]) 
-      
-    # Will add the values before 
-    # n to the end of new list     
-    for item in range(0, k):  
-        output_list.append(l[item]) 
-          
-    return output_list 
+def rotatelist(l,k):
+  m=l[:]
+  for i in range(k):
+    t=m.pop(0)
+    m.append(t)
+    
+  return((m))
+
+
+def matched(s):
+  c=0
+  for i in s:
+    if i == "(":
+      c+=1
+    elif i==")":
+      if c==0:
+        return False
+      c-=1	      
+  if(c==0):
+    return True
+  else:
+    return False
+
